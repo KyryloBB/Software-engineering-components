@@ -1,0 +1,111 @@
+@startuml
+left to right direction
+
+Actor "Student" as Student
+Actor "Teacher" as Teacher
+Actor "Instructor" as Instructor
+Actor "Admin" as Admin
+
+Usecase "Authorize" as UC
+Usecase "Make payment" as SC1
+Usecase "Pay by PayPal" as SC2
+Usecase "Pay by card" as SC3
+Usecase "Pay by cash" as SC4
+Usecase "Get membership" as SC5
+Usecase "View membership information" as SC6
+Usecase "Study" as SC7
+Usecase "Learn theory" as SC8
+Usecase "Do tests" as SC9
+Usecase "Visit lectures" as SC10
+Usecase "Use materials" as SC11
+Usecase "Attend practical lessons" as SC12
+Usecase "Register for the practical exam" as SC13
+Usecase "View history" as SC14
+Usecase "View history of payments" as SC15
+Usecase "View history of practical exams" as SC16
+Usecase "View history of lessons" as SC17
+Usecase "View history of theoretical lessons" as SC18
+Usecase "View history of practical lessons" as SC19
+Usecase "Get in touch with staff" as SC20
+Usecase "Get in touch with driving school" as SC21
+Usecase "Get in touch with teacher" as SC22
+Usecase "Get in touch with instructor" as SC23
+
+Student --> UC
+Student --> SC1
+Student --> SC5
+Student --> SC6
+Student --> SC7
+Student --> SC13
+Student --> SC14
+Student --> SC20
+
+SC1 <|-- SC2 : extend
+SC1 <|-- SC3 : extend
+SC1 <|-- SC4 : extend
+SC7 <|-- SC8 : extend
+SC8 <|-- SC9 : extend
+SC8 <|-- SC10 : extend
+SC8 <|-- SC11 : extend
+SC7 <|-- SC12 : extend
+SC14 <|-- SC15 : extend
+SC14 <|-- SC16 : extend
+SC14 <|-- SC17 : extend
+SC17 <|-- SC18 : extend
+SC17 <|-- SC19 : extend
+SC20 <|-- SC21 : extend
+SC20 <|-- SC22 : extend
+SC20 <|-- SC23 : extend
+
+SC5 ..> SC1 : use
+SC6 ..> SC5 : use
+SC15 ..> SC1 : use
+SC16 ..> SC13 : use
+SC18 ..> SC10 : use
+SC19 ..> SC12 : use
+SC13 ..> SC12 : use
+
+Usecase "Give a lecture" as TC1
+Usecase "Prepare materials" as TC2
+Usecase "Monitor student performance" as TC3
+
+Teacher --> UC
+Teacher --> TC1
+Teacher --> TC2
+Teacher --> TC3
+
+SC9 ..> TC2 : use
+SC10 ..> TC1 : use
+SC11 ..> TC2 : use
+
+Usecase "Organize practical lesson" as IC1
+Instructor --> UC
+Instructor --> IC1
+SC12 ..> IC1 : use
+
+Usecase "Manage student data" as AC1
+Usecase "Manage membership data" as AC2
+Usecase "Manage driving school data" as AC3
+Usecase "Manage staff data" as AC4
+Usecase "Manage teacher data" as AC5
+Usecase "Manage instructor data" as AC6
+Usecase "Manage resource data" as AC7
+Usecase "Manage training ground data" as AC8
+Usecase "Manage car data" as AC9
+
+Admin --> UC
+Admin --> AC1
+Admin --> AC2
+Admin --> AC3
+Admin --> AC4
+Admin --> AC7
+
+AC4 <|-- AC5 : extend
+AC4 <|-- AC6 : extend
+AC7 <|-- AC8 : extend
+AC7 <|-- AC9 : extend
+
+AC1 ..> UC : use
+AC2 ..> SC5 : use
+ 
+@enduml
