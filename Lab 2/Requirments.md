@@ -43,20 +43,21 @@
 1. **Student authorization**
 2. **Teacher authorization**
 3. **Instructor authorization**
-4. **Student can buy membership**
-5. **Student can get information about his membership**
-6. **Student can study traffic rules**
-7. **Student can get practical skills**
-8. **Student can register for the practical exam**
-9. **Student can view history of his actions**
-10. **Student can contact with staff**
-11. **Admin can manage accounts**
-12. **Admin can manage driving schools**
-13. **Admin can manage resources**
-14. **Teacher can give lectures to students**
-15. **Teacher can give educational materials to students**
-16. **Teacher can monitor student performance**
-17. **Instructor can organize practical lessons to students**
+4. **Admin authorizarion**
+5. **Student can buy membership**
+6. **Student can get information about his membership**
+7. **Student can study traffic rules**
+8. **Student can get practical skills**
+9. **Student can register for the practical exam**
+10. **Student can view history of his actions**
+11. **Student can contact with staff**
+12. **Admin can manage accounts**
+13. **Admin can manage driving schools**
+14. **Admin can manage resources**
+15. **Teacher can give lectures to students**
+16. **Teacher can give educational materials to students**
+17. **Teacher can monitor student performance**
+18. **Instructor can organize practical lessons to students**
 
 ## Non Functional requirments 
 1. **Safeness of personal data of students**
