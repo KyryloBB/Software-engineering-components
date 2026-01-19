@@ -8,7 +8,7 @@ Actor "Admin" as Admin
 
 Usecase "Authorize via OTP" as UC
 Usecase "Make payment" as SC1
-Usecase "Pay by PayPal" as SC2
+Usecase "Pay by GooglePay" as SC2
 Usecase "Pay by card" as SC3
 Usecase "Pay by cash" as SC4
 Usecase "Get membership" as SC5
