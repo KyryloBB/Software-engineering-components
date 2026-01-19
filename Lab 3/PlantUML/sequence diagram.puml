@@ -1,0 +1,88 @@
+@startuml
+hide footbox
+
+actor Student
+participant System
+database DB
+participant "Payment Service" as PS
+
+Student -> System: 1.requestMembershipPlans()
+activate System
+
+System -> DB: 2.getPlans()
+activate DB
+System <-- DB: 3.sendPlanList()
+deactivate DB
+
+Student <-- System: 4.displayPlans()
+deactivate System
+
+Student -> System: 5.selectPlan()
+activate System 
+
+opt Not logged in
+  
+  alt has account
+    
+    Student -> System: 6.submitCredentials()
+
+    System -> DB: 7.verifyCredentials()
+    activate DB
+    System <-- DB: 8.sendAuthResult()
+    deactivate DB
+
+    Student <-- System: 9.showAuthResult()
+
+  else hasn't account
+
+    Student -> System: 10.sendRegistrationData()
+
+    System -> DB: 11.createNewStudent()
+    activate DB
+    System <-- DB: 12.sendConfirmation()
+    deactivate DB
+
+    Student <-- System: 13.showConfirmation()
+
+  end
+
+end 
+
+opt Selected practical plan
+
+  System -> DB: 14.checkExamStatus()
+  activate DB
+  System <-- DB: 15.sendExamStatus()
+  deactivate DB
+
+    opt hasn't passed theoretical exam
+
+      Student <- System: 16.sendErrorMessage()
+
+    end
+
+end
+
+System -> PS: 17.initPayment()
+activate PS
+System <-- PS: 18.paymentStatus()
+deactivate PS
+|||
+System -> DB: 19.savePayment()
+activate DB 
+
+alt Payment successful
+
+  System -> DB: 20.createMembership()
+  deactivate DB
+
+  System -> Student: 21.showPaymentSuccessful()
+
+else Payment failed
+
+  System -> Student: 22.showPaymentError()
+  deactivate System
+
+end
+
+@enduml
