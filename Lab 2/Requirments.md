@@ -3,7 +3,7 @@
 2. **Get membership**
 3. **View membership information**
 4. **Make payment**
-5. **Pay by PayPal**
+5. **Pay by GooglePay**
 6. **Pay by card**
 7. **Pay by cash**
 8. **Learn theory**
