@@ -6,12 +6,13 @@ start
 
 repeat 
     :Enter registration data;
+    :Send registration data;
     :Registration data;
     |System|
     :Validate data;
 backward:Show validation error;
-repeat while (Data is valid) is (no)
-->yes;
+repeat while () is (Data isn't valid)
+->Data is valid;
 
 :Check if students exists;
 
@@ -25,7 +26,7 @@ if () then (Student doesn't exist)
             stop
         fork again
             |System|
-            :Save student data;
+            :Save student data in DB;
         end merge
         stop
 else (Student exists)
