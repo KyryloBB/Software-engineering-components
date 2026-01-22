@@ -1,0 +1,35 @@
+@startuml
+
+|Student|
+start
+:Open registration form;
+
+repeat 
+    :Enter registration data;
+    :Registration data;
+    |System|
+    :Validate data;
+backward:Show validation error;
+repeat while (Data is valid) is (no)
+->yes;
+
+:Check if students exists;
+
+if () then (Student doesn't exist)
+    :Create account;
+        fork
+            :Send confirmation message;
+            :Confirmation message;
+            |Student|
+            :Close registration form;
+            stop
+        fork again
+            |System|
+            :Save student data;
+        end merge
+        stop
+else (Student exists)
+:Show error;
+stop
+
+@enduml
